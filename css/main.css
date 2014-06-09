@@ -1,0 +1,36 @@
+
+        .lc{float:left;}
+        .rc{float:right}
+        .blk{display:block; zoom:1;}
+        .blk:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden; zoom:1;}
+        .clr{ clear:both;}
+        .products{padding-bottom:30px; width:100%; overflow:hidden; position: relative;}
+        .products div{float:left; width:16%; font-size:11px; color:#333; margin-right:1%; border:1px solid #cacaca; min-height:150px; overflow:hidden; line-height:14px; padding:1%; background:#f6f6f6; margin-bottom:-300px; padding-bottom:300px; position:relative; overflow: hidden;}
+        .products div img{width:100%; margin-bottom:10px; display: block; float: none; clear:both;}
+        .products div span{display: block; padding:10px 0;}
+        .products div input{width:50px;}
+        .products div button{padding:5px 10px; display:block; background:#006699;color:#fff; text-decoration: none; font-size:14px; border:0px; margin:0px; }
+        table{width:100%; cell-border:0px; margin:0; padding:0; font-size:13px;}
+        table td,
+        table th{padding:0px; text-align:left; padding:12px; border:1px solid #e1e1e1; border-width:1px 0; position:relative;}
+        table td.product{width:50%;}
+        table td.product span{display:block; padding:5px 5px 15px; font-weight:bold;}
+        table td.product img{width:30%;}
+        table td.qty{width:10%;}
+        table td.qty input{width:30px; text-align:center;}
+        table tr:nth-child(even){background:#f2f2f2;}
+        table tr.total{border:1px solid #333; border-width:3px 0 1px; font-weight:bold; font-size:15px}
+        table tr.total td:first-child{text-align:right; padding-right:40px;}
+        table td .rmvBtn{
+            display: inline-block;
+            padding: 3px 6px;
+            background: #d1d1d1;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color: #777;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            border: 1px solid #cacaca;
+        }

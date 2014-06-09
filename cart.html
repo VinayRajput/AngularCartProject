@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css" />
+        <link rel="stylesheet" href="css/main.css">
+
+		<title> Cart Project</title>
+		<script data-require="angular.js@*" data-semver="1.2.13" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+		<script type="text/javascript" src="js/template.js"></script>
+	</head>
+<body ng-app="services.cart">
+
+<div ng-controller="cartController as m">
+
+<h1>Shopping Cart example</h1>
+<div class='products blk'  >
+	<div ng-repeat="product in products">
+	    <span ng-bind="product.name"> </span>
+	    <img ng-src="{{product.imgUrl}}" /> 
+	    <input type='text' value="1" ng-model="product.qty" min="1" />
+	    <span>
+	    Price: &#8377;.{{product.price}}
+	    </span>
+	    <button ng-click="buy('product'+($index+1))" data-json="{{product}}" id="product{{$index+1}}">Buy</button>
+	</div>
+</div>
+
+<table ng-if="cart.items.length > 0" >
+    <tr>
+        <th>Item </th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <tr ng-repeat="cartItem in cart.items track by $index " id="item{{($index+1)}}">
+        <td class='product'>
+        	<span ng-bind="cartItem.name"></span>
+        	<img ng-src='{{cartItem.imgUrl}}' />
+        </td>
+        <td class='qty'><input type="number" value="" ng-model="cartItem.qty" ng-change="update(cartItem.vendorCode, cartItem.qty)" min="1"  /></td>
+        <td class='price'>{{cartItem.price | currency:"&#8377; " }}</td>
+        <td class='total'>
+        <a href='javascript:;' id='' class='rmvBtn' ng-click="remove('item'+($index+1), cartItem.vendorCode)">x</a>
+        {{cartItem.itemTotal | currency:"&#8377; "}}</td>
+    </tr>    
+    <tr class="total" ng-show="cart.items.length>0">
+    	<td colspan="3">Total</td>
+    	<td>{{total() | currency:"&#8377; "}}</td>
+    </tr>
+</table>
+</div>
+</body>
+
+</html>
